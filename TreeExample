@@ -1,0 +1,131 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Собеседование
+{
+	class Program
+	{
+
+		static void Main(string[] args)
+		{
+      
+      Tree exampleTree = new Tree();
+      
+			exampleTree.Add(65);
+			exampleTree.Add(57657);
+			exampleTree.Add(4555);
+			exampleTree.Add(999);
+			exampleTree.Add(7657576);
+			exampleTree.Add(5765);
+			exampleTree.Add(8550);
+			exampleTree.Add(567573);
+
+	  Console.WriteLine("Прямой обход: ");
+			exampleTree.Preorder(exampleTree.ReturnRoot());
+			Console.WriteLine(" ");
+      
+			Console.WriteLine("Обратный обход: ");
+			exampleTree.Postorder(exampleTree.ReturnRoot());
+			Console.WriteLine(" ");
+
+   Console.WriteLine("Центрированный обход: ");
+			exampleTree.Inorder(exampleTree.ReturnRoot());
+			Console.WriteLine(" ");
+			
+			Console.ReadLine();
+		}
+    
+    public class TreeNode
+		{
+			public int Value;
+			public TreeNode Left;
+			public TreeNode Right;
+		}
+
+		public class Tree
+		{
+			public TreeNode root;
+			public Tree()
+			{
+				root = null;
+			}
+      
+			public TreeNode ReturnRoot()
+			{
+				return root;
+			}
+
+
+			public void Add(int id)
+			{
+				TreeNode newNode = new TreeNode();
+				newNode.Value = id;
+				if (root == null)
+				{
+					root = newNode;
+				}
+				else
+				{
+					TreeNode current = root;
+					TreeNode parent;
+					while (true)
+					{
+						parent = current;
+						if (id < current.Value)
+						{
+							current = current.Left;
+							if (current == null)
+							{
+								parent.Left = newNode;
+								return;
+							}
+						}
+						else
+						{
+							current = current.Right;
+							if (current == null)
+							{
+								parent.Right = newNode;
+								return;
+							}
+						}
+					}
+				}
+			}
+			public void Preorder(TreeNode Root)
+			{
+				if (Root != null)
+				{
+					Console.Write(Root.Value + " ");
+					Preorder(Root.Left);
+					Preorder(Root.Right);
+				}
+			}
+			public void Inorder(TreeNode Root)
+			{
+				if (Root != null)
+				{
+					Inorder(Root.Left);
+					Console.Write(Root.Value + " ");
+					Inorder(Root.Right);
+				}
+			}
+			public void Postorder(TreeNode Root)
+			{
+				if (Root != null)
+				{
+					Postorder(Root.Left);
+					Postorder(Root.Right);
+					Console.Write(Root.Value + " ");
+				}
+			}
+		}
+
+
+	}
+}
+
+    
