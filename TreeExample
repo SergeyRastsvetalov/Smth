@@ -69,32 +69,32 @@ namespace Собеседование
 				}
 				else
 				{
-			TreeNode current = root;
+		TreeNode current = root;
 		TreeNode parent;
 	        while (true)
-					{
-						parent = current;
-						if (id < current.Value)
-						{
-							current = current.Left;
-							if (current == null)
-							{
-								parent.Left = newNode;
-								return;
-							}
-						}
-						else
-						{
-							current = current.Right;
-							if (current == null)
-							{
-								parent.Right = newNode;
-								return;
-							}
-						}
-					}
+	{
+parent = current;
+if (id < current.Value)
+{
+current = current.Left;
+if (current == null)
+{
+parent.Left = newNode;
+return;
+}
+}
+else
+{
+current = current.Right;
+if (current == null)
+{
+parent.Right = newNode;
+					return;
 				}
-			}
+		}
+	}
+}
+}
 			public void Preorder(TreeNode Root)
 			{
 				if (Root != null)
