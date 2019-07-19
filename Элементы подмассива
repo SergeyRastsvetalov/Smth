@@ -1,0 +1,35 @@
+static void Main(string[] args)
+		{
+			var myArray = new[] { -35,-24,6,-4,-14,35,0,0,0,46,-24, 34,-134};
+	
+			var numberOfElements = 3;
+			var maxIndex = 0;
+			var maxSum = 0;
+
+			for (var i = 0; i < myArray.Length - numberOfElements; i++)
+			{
+			var currentSum = 0;
+			for (var j = i; j < i + numberOfElements; j++)
+			currentSum += myArray[j];
+
+
+			if (maxSum < currentSum)
+			{
+
+			maxSum = currentSum;
+			maxIndex = i;
+					
+			}
+			}
+			
+			for (var i = maxIndex; i < maxIndex + numberOfElements; i++)
+			{
+			
+				Console.WriteLine(myArray[i]);
+				
+			}
+
+			Console.WriteLine(maxIndex);
+			Console.WriteLine(maxSum);
+			Console.ReadLine();
+		}	
