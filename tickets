@@ -31,6 +31,7 @@ public static int Tickets()
 			if (sixthNumber >= 0 && sixthNumber <= 9)
 			number += 1;
 			}
+			
 			return number;
 		}
 
