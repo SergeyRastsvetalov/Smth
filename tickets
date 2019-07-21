@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Собеседование
+{
+	class Program
+	{
+
+		static void Main(string[] args)
+		{
+	
+    Console.WriteLine("Tickets: {0} ", Tickets());
+			Console.ReadLine();
+      
+      	}
+public static int Tickets()
+		{
+			int firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber, sixthNumber;
+			byte number = 0;
+
+			for (firstNumber = 0; firstNumber <= 9; firstNumber++)
+			for (secondNumber = 0; secondNumber <= 9; secondNumber++)
+			for (thirdNumber = 0; thirdNumber <= 9; thirdNumber++)
+			for (fourthNumber = 0; fourthNumber <= 9; fourthNumber++)
+			for (fifthNumber = 0; fifthNumber <= 9; fifthNumber++)
+			{
+			sixthNumber = (firstNumber + secondNumber + thirdNumber) - (fourthNumber + fifthNumber);
+			if (sixthNumber >= 0 && sixthNumber <= 9)
+			number += 1;
+			}
+			return number;
+		}
+
+	}
+
+}
